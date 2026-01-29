@@ -98,7 +98,7 @@ fuel_types = sorted(data["fuel_type"].unique())
 
 st.markdown("<h1>tamimystic Car Price Predictor</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<div class='subtitle'>Used Car Price Prediction using Linear Regression</div>",
+    "<div class='subtitle'>Car Price Prediction using Linear Regression</div>",
     unsafe_allow_html=True
 )
 
