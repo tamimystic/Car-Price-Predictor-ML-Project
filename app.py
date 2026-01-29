@@ -8,6 +8,44 @@ st.set_page_config(
     layout="centered"
 )
 
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #0e1117;
+        color: #fafafa;
+    }
+    h1, h2, h3, h4, h5, h6, p, label {
+        color: #fafafa !important;
+    }
+    div[data-baseweb="select"] > div {
+        background-color: #161b22;
+        color: #fafafa;
+    }
+    input, textarea {
+        background-color: #161b22 !important;
+        color: #fafafa !important;
+    }
+    .stSlider > div {
+        color: #fafafa;
+    }
+    button[kind="primary"] {
+        background-color: #238636;
+        color: white;
+        border-radius: 6px;
+    }
+    button[kind="primary"]:hover {
+        background-color: #2ea043;
+        color: white;
+    }
+    hr {
+        border-color: #30363d;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 model = pickle.load(open("log_linearregressionmodel.pkl", "rb"))
 
 @st.cache_data
@@ -37,13 +75,8 @@ col1, col2 = st.columns(2)
 
 with col1:
     company = st.selectbox("Company", companies)
-
-    filtered_names = sorted(
-        data[data["company"] == company]["name"].unique()
-    )
-
+    filtered_names = sorted(data[data["company"] == company]["name"].unique())
     name = st.selectbox("Car Name", filtered_names)
-
     year = st.slider(
         "Manufacturing Year",
         int(data["year"].min()),
@@ -58,7 +91,6 @@ with col2:
         step=1000,
         value=50000
     )
-
     fuel_type = st.selectbox("Fuel Type", fuel_types)
 
 if "Diesel" in name:
@@ -71,10 +103,8 @@ if st.button("Predict Price", use_container_width=True):
         [[name, company, year, kms_driven, fuel_type]],
         columns=["name", "company", "year", "kms_driven", "fuel_type"]
     )
-
     pred_log = model.predict(input_df)[0]
     pred_price = np.exp(pred_log)
-
     st.success(f"Estimated Car Price: BDT {round(pred_price, 2):,}")
 
 st.markdown(
