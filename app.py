@@ -98,7 +98,7 @@ fuel_types = sorted(data["fuel_type"].unique())
 
 st.markdown("<h1>tamimystic Car Price Predictor</h1>", unsafe_allow_html=True)
 st.markdown(
-    "<div class='subtitle'>Car Price Prediction using Linear Regression</div>",
+    "<div class='subtitle'>Used Car Price Prediction using Linear Regression</div>",
     unsafe_allow_html=True
 )
 
@@ -143,6 +143,6 @@ if st.button("Predict Price", use_container_width=True):
     st.success(f"Estimated Car Price: BDT {round(price, 2):,}")
 
 st.markdown(
-    "<div class='footer'>This prediction is based on a custom dataset and is not a real market valuation.</div>",
+    "<div class='footer'>This prediction is based on a custom dataset and it is not a real market valuation.</div>",
     unsafe_allow_html=True
 )
