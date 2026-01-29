@@ -20,7 +20,7 @@ companies = sorted(data["company"].unique())
 fuel_types = sorted(data["fuel_type"].unique())
 
 st.markdown(
-    "<h1 style='text-align:center;'>Tamimystic Car Price Predictor</h1>",
+    "<h1 style='text-align:center;'>tamimystic Car Price Predictor</h1>",
     unsafe_allow_html=True
 )
 
