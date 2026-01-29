@@ -12,7 +12,7 @@ model = pickle.load(open("log_linearregressionmodel.pkl", "rb"))
 
 @st.cache_data
 def load_data():
-    return pd.read_csv("model training/car_clean_data.csv")
+    return pd.read_csv("model_training/car_clean_data.csv")
 
 data = load_data()
 
